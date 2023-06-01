@@ -88,7 +88,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
   params,
 }) => {
-  const productId = String(params.id)
+  const productId = String(params!.id)
 
   const product = await stripe.products.retrieve(productId, {
     expand: ['default_price'],
@@ -105,7 +105,7 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
         price: new Intl.NumberFormat('pt-BR', {
           style: 'currency',
           currency: 'BRL',
-        }).format(price.unit_amount / 100),
+        }).format(price.unit_amount! / 100),
         description: product.description,
         defaultPriceId: price.id,
       },
