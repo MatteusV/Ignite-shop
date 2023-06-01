@@ -14,7 +14,6 @@ export const Header = styled('header', {
   maxWidth: 1180,
   margin: '0 auto',
 
-  border: '1px solid red',
 
   display: 'flex',
   alignItems: 'center',
